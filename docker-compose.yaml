@@ -1,0 +1,39 @@
+version: "3.3"
+services:
+  starlink_exporter:
+    image: "ghcr.io/danopstech/starlink_exporter:latest"
+    restart: always
+    ports:
+      - "9817:9817"
+  speedtest_exporter:
+    image: "ghcr.io/danopstech/speedtest_exporter:latest"
+    restart: always
+    ports:
+      - "9092:9090"
+  prometheus:
+    image: "prom/prometheus:v2.26.0"
+    restart: always
+    user: "root"
+    ports:
+      - "9090:9090"
+    volumes:
+      - type: bind
+        source: ./config/prometheus/prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+      - type: bind
+        source: ./data/prometheus
+        target: /prometheus
+  grafana:
+    image: "grafana/grafana:7.5.4"
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_INSTALL_PLUGINS=ae3e-plotly-panel
+    volumes:
+      - type: bind
+        source: ./data/grafana
+        target: /var/lib/grafana
+      - type: bind
+        source: ./config/grafana/provisioning
+        target: /etc/grafana/provisioning/
