@@ -94,7 +94,6 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "$$hashKey": "object:934",
           "alias": "Download",
           "color": "#FADE2A"
         }
@@ -140,7 +139,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:95",
           "decimals": null,
           "format": "short",
           "label": "Mbps",
@@ -150,7 +148,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:96",
           "format": "short",
           "label": "Upload (Mbps)",
           "logBase": 1,
@@ -234,95 +231,6 @@
     },
     {
       "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "rgb(245, 245, 245)",
-            "mode": "fixed"
-          },
-          "mappings": [
-            {
-              "from": "",
-              "id": 1,
-              "text": "Unknown",
-              "to": "",
-              "type": 1,
-              "value": "0"
-            },
-            {
-              "from": "",
-              "id": 2,
-              "text": "Connected",
-              "to": "",
-              "type": 1,
-              "value": "1"
-            },
-            {
-              "from": "",
-              "id": 3,
-              "text": "Searching",
-              "to": "",
-              "type": 1,
-              "value": "2"
-            },
-            {
-              "from": "",
-              "id": 4,
-              "text": "Booting",
-              "to": "",
-              "type": 1,
-              "value": "3"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 20,
-        "y": 0
-      },
-      "id": 34,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.4",
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "starlink_dish_state",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "title": "State",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -358,8 +266,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 22,
+        "w": 4,
+        "x": 20,
         "y": 0
       },
       "id": 4,
@@ -399,13 +307,14 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "fixedColor": "rgb(245, 245, 245)",
             "mode": "thresholds"
           },
           "mappings": [
             {
               "from": "",
               "id": 1,
-              "text": "False",
+              "text": "Unknown",
               "to": "",
               "type": 1,
               "value": "0"
@@ -413,22 +322,46 @@
             {
               "from": "",
               "id": 2,
-              "text": "True",
+              "text": "Connected",
               "to": "",
               "type": 1,
               "value": "1"
+            },
+            {
+              "from": "",
+              "id": 3,
+              "text": "Searching",
+              "to": "",
+              "type": 1,
+              "value": "2"
+            },
+            {
+              "from": "",
+              "id": 4,
+              "text": "Booting",
+              "to": "",
+              "type": 1,
+              "value": "3"
             }
           ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "orange",
                 "value": null
               },
               {
-                "color": "red",
+                "color": "green",
                 "value": 1
+              },
+              {
+                "color": "yellow",
+                "value": 12
+              },
+              {
+                "color": "#EAB839",
+                "value": 22
               }
             ]
           }
@@ -441,7 +374,7 @@
         "x": 20,
         "y": 3
       },
-      "id": 13,
+      "id": 34,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -461,13 +394,13 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "starlink_dish_alert_slow_eth_speeds",
+          "expr": "starlink_dish_state",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "Slow Ethernet",
+      "title": "State",
       "type": "stat"
     },
     {
@@ -756,6 +689,158 @@
         "x": 20,
         "y": 5
       },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.4",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "starlink_dish_alert_slow_eth_speeds",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Slow Ethernet",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "False",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "text": "True",
+              "to": "",
+              "type": 1,
+              "value": "1"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 22,
+        "y": 5
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.4",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "starlink_dish_alert_thermal_throttle",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Thermal throttle",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "False",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "text": "True",
+              "to": "",
+              "type": 1,
+              "value": "1"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 20,
+        "y": 7
+      },
       "id": 6,
       "interval": "1s",
       "options": {
@@ -819,7 +904,7 @@
                 "value": null
               },
               {
-                "color": "purple",
+                "color": "red",
                 "value": 1
               }
             ]
@@ -831,10 +916,9 @@
         "h": 2,
         "w": 2,
         "x": 22,
-        "y": 5
+        "y": 7
       },
-      "id": 29,
-      "interval": "1s",
+      "id": 15,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -853,15 +937,134 @@
       "pluginVersion": "7.5.4",
       "targets": [
         {
-          "expr": "max(speedTest_running)",
-          "instant": false,
+          "exemplar": true,
+          "expr": "starlink_dish_alert_thermal_shutdown",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "Speed Test",
+      "title": "Thermal Shutdown",
       "type": "stat"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 0,
+        "y": 8
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "interval": "1s",
+      "legend": {
+        "alignAsTable": false,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.4",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Ping Drop",
+          "bars": true,
+          "color": "#F2495C",
+          "lines": false,
+          "yaxis": 2
+        },
+        {
+          "alias": "Latency",
+          "color": "#5794F2"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "starlink_dish_pop_ping_latency_seconds",
+          "interval": "",
+          "legendFormat": "Latency",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "starlink_dish_pop_ping_drop_ratio",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Ping Drop",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Latency/Drop",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "label": "Time",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "percentunit",
+          "label": "Drop",
+          "logBase": 1,
+          "max": "1",
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "datasource": "Prometheus",
@@ -908,7 +1111,7 @@
         "h": 2,
         "w": 2,
         "x": 20,
-        "y": 7
+        "y": 9
       },
       "id": 14,
       "options": {
@@ -984,205 +1187,6 @@
         "h": 2,
         "w": 2,
         "x": 22,
-        "y": 7
-      },
-      "id": 17,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.4",
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "starlink_dish_alert_thermal_throttle",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "title": "Thermal throttle",
-      "type": "stat"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 16,
-        "x": 0,
-        "y": 8
-      },
-      "hiddenSeries": false,
-      "id": 10,
-      "interval": "1s",
-      "legend": {
-        "alignAsTable": false,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.5.4",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:94",
-          "alias": "Ping Drop",
-          "bars": true,
-          "color": "#F2495C",
-          "lines": false,
-          "yaxis": 2
-        },
-        {
-          "$$hashKey": "object:613",
-          "alias": "Latency",
-          "color": "#5794F2"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "starlink_dish_pop_ping_latency_seconds",
-          "interval": "",
-          "legendFormat": "Latency",
-          "refId": "A"
-        },
-        {
-          "exemplar": true,
-          "expr": "starlink_dish_pop_ping_drop_ratio",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "Ping Drop",
-          "refId": "B"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Latency/Drop",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:201",
-          "format": "ms",
-          "label": "Time",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:202",
-          "format": "percentunit",
-          "label": "Drop",
-          "logBase": 1,
-          "max": "1",
-          "min": "0",
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "from": "",
-              "id": 1,
-              "text": "False",
-              "to": "",
-              "type": 1,
-              "value": "0"
-            },
-            {
-              "from": "",
-              "id": 2,
-              "text": "True",
-              "to": "",
-              "type": 1,
-              "value": "1"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 2,
-        "x": 20,
         "y": 9
       },
       "id": 12,
@@ -1212,82 +1216,6 @@
         }
       ],
       "title": "Motors Stuck",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "from": "",
-              "id": 1,
-              "text": "False",
-              "to": "",
-              "type": 1,
-              "value": "0"
-            },
-            {
-              "from": "",
-              "id": 2,
-              "text": "True",
-              "to": "",
-              "type": 1,
-              "value": "1"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 2,
-        "x": 22,
-        "y": 9
-      },
-      "id": 15,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.4",
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "starlink_dish_alert_thermal_shutdown",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "title": "Thermal Shutdown",
       "type": "stat"
     },
     {
@@ -1365,7 +1293,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:327",
           "format": "short",
           "label": "Percent",
           "logBase": 1,
@@ -1374,7 +1301,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:328",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1463,7 +1389,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:327",
           "format": "short",
           "label": null,
           "logBase": 2,
@@ -1472,7 +1397,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:328",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1556,7 +1480,6 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "$$hashKey": "object:631",
           "alias": "Obstructed",
           "bars": true,
           "color": "#F2495C",
@@ -1604,7 +1527,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:201",
           "decimals": 0,
           "format": "short",
           "label": "SNR",
@@ -1614,7 +1536,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:202",
           "format": "percentunit",
           "label": "Obstructed",
           "logBase": 1,
@@ -1676,7 +1597,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "max(max_over_time(speedTest_download_speed_Bps[1d:5m]))",
+          "expr": "max(max_over_time(speedtest_download_speed_Bps[1d:5m]))",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1734,7 +1655,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "max(max_over_time(speedTest_upload_speed_Bps[1d:5m]))",
+          "expr": "max(max_over_time(speedtest_upload_speed_Bps[1d:5m]))",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1791,7 +1712,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "min(min_over_time(speedTest_latency_seconds[1d:5m]))",
+          "expr": "min(min_over_time(speedtest_latency_seconds[1d:5m]))",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1843,7 +1764,6 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "$$hashKey": "object:446",
           "alias": "Scrape Duration",
           "color": "rgb(191, 191, 191)"
         }
@@ -1880,7 +1800,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:50",
           "format": "s",
           "label": null,
           "logBase": 10,
@@ -1889,7 +1808,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:51",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1929,5 +1847,5 @@
   "timezone": "",
   "title": "Starlink Overview",
   "uid": "GG3mnflGz",
-  "version": 1
+  "version": 6
 }
