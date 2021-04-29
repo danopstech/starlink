@@ -9,4 +9,4 @@ providers:
     editable: false
     allowUiUpdates: false
     options:
-      path: /etc/grafana/provisioning/dashboards/boards
+      path: /etc/grafana/provisioning/dashboards/
