@@ -10,7 +10,13 @@ scrape_configs:
     static_configs:
       - targets: ['starlink_exporter:9817']
   - job_name: 'speedtest'
-    scrape_interval: 30m
-    scrape_timeout: 40s
+    scrape_interval: 60m
+    scrape_timeout: 60s
     static_configs:
       - targets: [ 'speedtest_exporter:9090' ]
+
+#remote_write:
+#  - url:
+#    basic_auth:
+#      username:
+#      password:
