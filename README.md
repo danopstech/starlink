@@ -18,6 +18,8 @@ Not affiliated with or acting on behalf of Starlink™️
 <a href="https://snapshot.raintank.io/dashboard/snapshot/Uxz6Ux2jQ4Vo4KPcNkNNNZGMNWJMdYe0?orgId=2">Demo 1</a>
 •
 <a href="https://snapshot.raintank.io/dashboard/snapshot/ViMDzVkO4ABoODqbUyBan2jojrrq6Bgw">Demo 2</a>
+•
+<a href="https://snapshot.raintank.io/dashboard/snapshot/oHunms82SUE7AVm5mPWPPmwBwiLpY4kT">Demo 3</a>
 </p>
 
 <p align="center">
@@ -39,14 +41,16 @@ Not affiliated with or acting on behalf of Starlink™️
 </p>
 
 <p align="center">
-    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot1.jpg" width="45%"/> 
-    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot2.jpg" width="45%"/>
+    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot1.jpg" width="32%"/> 
+    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot2.jpg" width="32%"/>
+    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot3.jpg" width="32%"/>
 </p>
 
 ## 🏗️ Built With
 
-- 🐳 **[Starlink Prometheus exporter](https://github.com/danopstech/starlink_exporter)** - talks to the Starlink dish via gRPC and exposes metrics in a format Prometheus understands.
+- 🐳 **[Starlink exporter](https://github.com/danopstech/starlink_exporter)** - talks to the Starlink dish via gRPC and exposes metrics in a format Prometheus understands.
 - 🐳 **[Speedtest exporter](https://github.com/danopstech/speedtest_exporter)** - When asked it carries out a ping,upload and download test to [speedtest.net](https://www.speedtest.net/).
+- 🐳 **[Blackbox exporter](https://github.com/prometheus/blackbox_exporter/)** - Carries out high frequency ping tests.
 - 🐳 **[Grafana](https://grafana.com/)** - used to compose observability dashboards.
 - 🐳 **[Prometheus](https://prometheus.io/)** - implements a highly dimensional data model.
 - 🐳 **[Docker-Compose](https://docs.docker.com/compose/)** -  for defining and running multi-container Docker applications.
@@ -54,6 +58,13 @@ Not affiliated with or acting on behalf of Starlink™️
 ## 👋 Overview
 
 I hope this project will make it easier for users to monitor their Starlink connection in even more detail, see its performance over time with each beta software release, but most importantly brag about their new satellite base internet to EVERYONE!
+
+**What does this do?**
+1. Collects information from the Starlink dish every 3 seconds such as: signal strength, alarms, obstructions and latency
+2. Runs internet speed tests every 60 minutes (upload, download, ping)
+3. Measures latency to multiple destinations globally every 3 seconds
+4. Stores all the metrics in a local database (Prometheus time series database)
+5. You can then view the metrics on pre-built dashboards or create your own dashboards in Grafana.
 
 <p align="center">
     <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/overview.png" width="95%"/> 
@@ -108,7 +119,8 @@ starlink
 │   │   └── provisioning       
 │   │        ├── dashboards    # The preloaded dashboards
 │   │        └── datasources   # The preloaded config to talk with prometheus
-│   └── prometheus             # Prometheus config file
+│   ├── prometheus             # Prometheus config file
+│   └── blackbox               # Blackbox exporter config file
 ├── data                       # Persistent data
 │    ├── grafana               # Grafana will store its running files here
 │    └── prometheus            # Prometheus will store its running files here
@@ -148,7 +160,7 @@ $ docker-compose down
 - This is where the pretty graphs are
 - Access via your browser at [http://localhost:3000](http://localhost:3000)
 - The username and password is "admin" (no need to change it, its only local)
-- Pre-loaded dashboards are at [Starlink](http://localhost:3000/d/GG3mnflGz/starlink-overview), [Speedtest](http://localhost:3000/d/DS4xw19Gz/speedtest)
+- Pre-loaded dashboards are Starlink, Speedtest, Ping
 
 **Prometheus**
 - If you know [promQL](https://prometheus.io/docs/prometheus/latest/querying/basics/), this is where you can create adhoc queries
@@ -167,6 +179,11 @@ $ docker-compose down
 - `/metrics` link takes 40 seconds to load as it carries out a speedtest
 - You might get an error `Limit of concurrent requests reached (1), try again later.` this means a speedtest is already running
 - `/health` link shows you if it can reach the internet
+
+**Blackbox Exporter**
+- Standard usage there is no need to visit this
+- Access via your browser at [http://localhost:9115](http://localhost:9115)
+- Recent probes table shows you past ping test details
 
 ## 📖 Extras
 ### Running versioned images
@@ -187,19 +204,6 @@ See the open [issues](https://github.com/danopstech/starlink/issues) for a list 
 
 ## 😊 Author
 This project was created in 2021 by [Dan Willcocks](https://github.com/dwillcocks).
-
-## 🎦 Screenshots
-
-These might be a little behind, as code/features will be released before screenshots.
-
-<p align="center">
-<img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot1.jpg" width="23%"/> 
-<img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot2.jpg" width="23%"/>
-<img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot3.jpg" width="23%"/>
-<img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot4.jpg" width="23%"/>
-<img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot5.jpg" width="23%"/>
-<img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot6.jpg" width="23%"/>
-</p>
 
 ## 👎 Troubleshooting
 Some troubleshooting tips coming soon.<br/>

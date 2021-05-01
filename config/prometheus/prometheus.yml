@@ -5,15 +5,61 @@ global:
 
 scrape_configs:
   - job_name: 'starlink'
-    scrape_interval: 1s
-    scrape_timeout:  1s
+    scrape_interval: 3s
+    scrape_timeout:  3s
     static_configs:
       - targets: ['starlink_exporter:9817']
+
   - job_name: 'speedtest'
     scrape_interval: 60m
     scrape_timeout: 60s
     static_configs:
       - targets: [ 'speedtest_exporter:9090' ]
+
+  - job_name: 'blackbox'
+    scrape_interval: 3s
+    scrape_timeout: 3s
+    metrics_path: /probe
+    params:
+      module: [icmp_ipv4]
+    static_configs:
+      - targets: [ 'qosping-aws-us-west-1.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_us_west'
+      - targets: [ 'qosping-aws-us-east-1.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_us_east'
+      - targets: [ 'qosping-aws-eu-west-3.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_eu-west'
+      - targets: [ 'qosping-aws-ap-southeast-2.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_ap-southeast'
+      - targets: [ 'qosping-aws-sa-east-1.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_sa-east'
+      - targets: [ 'qosping-aws-ap-northeast-1.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_ap-northeast'
+      - targets: [ 'qosping-aws-me-south-1.ol.epicgames.com' ]
+        labels:
+          name: 'epicgames_me-south'
+      - targets: [ '8.8.8.8' ]
+        labels:
+          name: 'google_a'
+      - targets: [ '8.8.4.4' ]
+        labels:
+          name: 'google_b'
+      - targets: [ '1.1.1.1' ]
+        labels:
+          name: 'cloudflare'
+    relabel_configs:
+      - source_labels: [ __address__ ]
+        target_label: __param_target
+      - source_labels: [ __param_target ]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox:9115
 
 #remote_write:
 #  - url:

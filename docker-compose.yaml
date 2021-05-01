@@ -5,11 +5,24 @@ services:
     restart: always
     ports:
       - "9817:9817"
+
   speedtest_exporter:
     image: "ghcr.io/danopstech/speedtest_exporter:latest"
     restart: always
     ports:
       - "9092:9090"
+
+  blackbox:
+    image: "prom/blackbox-exporter:v0.18.0"
+    restart: always
+    user: "root"
+    ports:
+      - "9115:9115"
+    volumes:
+      - type: bind
+        source: ./config/blackbox/config.yaml
+        target: /etc/blackbox_exporter/config.yml
+
   prometheus:
     image: "prom/prometheus:v2.26.0"
     restart: always
@@ -23,6 +36,7 @@ services:
       - type: bind
         source: ./data/prometheus
         target: /prometheus
+
   grafana:
     image: "grafana/grafana:7.5.4"
     restart: always

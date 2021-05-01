@@ -1,3 +1,3 @@
-# versioned_releases
+# Versioned Releases
 
 Coming soon
