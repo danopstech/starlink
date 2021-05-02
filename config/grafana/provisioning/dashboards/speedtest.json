@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "id": 3,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -93,7 +93,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Download/Upload Throughput",
+      "title": "Throughput",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -155,7 +155,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
+        "w": 8,
         "x": 16,
         "y": 0
       },
@@ -181,70 +181,28 @@
           "exemplar": true,
           "expr": "max(max_over_time(speedtest_download_speed_Bps[1w:5m]))",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "Best",
           "refId": "A"
-        }
-      ],
-      "timeFrom": "1w",
-      "title": "Best Download",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "dark-green",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgb(131, 135, 131)",
-                "value": null
-              }
-            ]
-          },
-          "unit": "Bps"
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 0
-      },
-      "id": 19,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "center",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.4",
-      "targets": [
         {
           "exemplar": true,
           "expr": "min(min_over_time(speedtest_download_speed_Bps[1w:5m]))",
+          "hide": false,
           "interval": "",
-          "legendFormat": "",
-          "refId": "A"
+          "legendFormat": "Worst",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "avg(avg_over_time(speedtest_download_speed_Bps[1w:5m]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Avg",
+          "refId": "C"
         }
       ],
       "timeFrom": "1w",
-      "title": "Worst Download",
+      "title": "Download",
       "type": "stat"
     },
     {
@@ -271,7 +229,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
+        "w": 8,
         "x": 16,
         "y": 4
       },
@@ -279,7 +237,7 @@
       "options": {
         "colorMode": "value",
         "graphMode": "none",
-        "justifyMode": "auto",
+        "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -297,70 +255,28 @@
           "exemplar": true,
           "expr": "max(max_over_time(speedtest_upload_speed_Bps[1w:5m]))",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "Best",
           "refId": "A"
-        }
-      ],
-      "timeFrom": "1w",
-      "title": "Best Upload",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "dark-yellow",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgb(131, 135, 131)",
-                "value": null
-              }
-            ]
-          },
-          "unit": "Bps"
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 4
-      },
-      "id": 20,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.4",
-      "targets": [
         {
           "exemplar": true,
           "expr": "min(min_over_time(speedtest_upload_speed_Bps[1w:5m]))",
+          "hide": false,
           "interval": "",
-          "legendFormat": "",
-          "refId": "A"
+          "legendFormat": "Worst",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "avg(avg_over_time(speedtest_upload_speed_Bps[1w:5m]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Avg",
+          "refId": "C"
         }
       ],
       "timeFrom": "1w",
-      "title": "Worst Upload",
+      "title": "Upload",
       "type": "stat"
     },
     {
@@ -387,7 +303,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
+        "w": 8,
         "x": 16,
         "y": 8
       },
@@ -395,7 +311,7 @@
       "options": {
         "colorMode": "value",
         "graphMode": "none",
-        "justifyMode": "auto",
+        "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -413,70 +329,28 @@
           "exemplar": true,
           "expr": "min(min_over_time(speedtest_latency_seconds[1w:5m]))",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "Best",
           "refId": "A"
-        }
-      ],
-      "timeFrom": "1w",
-      "title": "Best Latency",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "dark-blue",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgb(131, 135, 131)",
-                "value": null
-              }
-            ]
-          },
-          "unit": "s"
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 8
-      },
-      "id": 18,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.4",
-      "targets": [
         {
           "exemplar": true,
           "expr": "max(max_over_time(speedtest_latency_seconds[1w:5m]))",
+          "hide": false,
           "interval": "",
-          "legendFormat": "",
-          "refId": "A"
+          "legendFormat": "Worst",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "avg(avg_over_time(speedtest_latency_seconds[1w:5m]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Avg",
+          "refId": "C"
         }
       ],
       "timeFrom": "1w",
-      "title": "Worst Latency",
+      "title": "Latency",
       "type": "stat"
     },
     {
@@ -644,7 +518,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Test Duration",
+      "title": "Duration",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -943,5 +817,5 @@
   "timezone": "",
   "title": "Speedtest",
   "uid": "DS4xw19Gz",
-  "version": 23
+  "version": 2
 }
