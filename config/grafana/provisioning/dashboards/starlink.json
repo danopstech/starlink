@@ -16,7 +16,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 1,
   "links": [
     {
       "icon": "info",
@@ -1781,7 +1780,7 @@
     ]
   },
   "timezone": "",
-  "title": "Starlink Overview",
+  "title": "Starlink",
   "uid": "GG3mnflGz",
-  "version": 5
+  "version": 1
 }

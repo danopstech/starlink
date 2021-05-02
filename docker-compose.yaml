@@ -13,7 +13,7 @@ services:
       - "9092:9090"
 
   blackbox:
-    image: "prom/blackbox-exporter:v0.18.0"
+    image: "ghcr.io/danopstech/blackbox_exporter:latest"
     restart: always
     user: "root"
     ports:
@@ -24,7 +24,7 @@ services:
         target: /etc/blackbox_exporter/config.yml
 
   prometheus:
-    image: "prom/prometheus:v2.26.0"
+    image: "ghcr.io/danopstech/prometheus:latest"
     restart: always
     user: "root"
     ports:
@@ -38,7 +38,7 @@ services:
         target: /prometheus
 
   grafana:
-    image: "grafana/grafana:7.5.4"
+    image: "ghcr.io/danopstech/grafana:latest"
     restart: always
     ports:
       - "3000:3000"

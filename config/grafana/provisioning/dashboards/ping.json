@@ -12,6 +12,7 @@
       }
     ]
   },
+  "description": "Ping metrics",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,

@@ -12,6 +12,7 @@
       }
     ]
   },
+  "description": "Speedtest metrics",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
