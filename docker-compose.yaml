@@ -40,6 +40,7 @@ services:
   grafana:
     image: "ghcr.io/danopstech/grafana:latest"
     restart: always
+    user: "root"
     ports:
       - "3000:3000"
     environment:
