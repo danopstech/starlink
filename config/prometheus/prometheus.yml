@@ -60,9 +60,3 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: blackbox:9115
-
-#remote_write:
-#  - url:
-#    basic_auth:
-#      username:
-#      password:

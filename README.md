@@ -14,12 +14,6 @@ Not affiliated with or acting on behalf of Starlink™️
 <a href="https://github.com/danopstech/starlink/issues/new?assignees=dwillcocks&labels=bug&template=bug_report.md&title=">Report Bug</a>
 •
 <a href="https://github.com/danopstech/starlink/issues/new?assignees=dwillcocks&labels=enhancement&template=feature_request.md&title=">Request Feature</a>
-•
-<a href="https://snapshot.raintank.io/dashboard/snapshot/Uxz6Ux2jQ4Vo4KPcNkNNNZGMNWJMdYe0?orgId=2">Demo 1</a>
-•
-<a href="https://snapshot.raintank.io/dashboard/snapshot/ViMDzVkO4ABoODqbUyBan2jojrrq6Bgw">Demo 2</a>
-•
-<a href="https://snapshot.raintank.io/dashboard/snapshot/oHunms82SUE7AVm5mPWPPmwBwiLpY4kT">Demo 3</a>
 </p>
 
 <p align="center">
@@ -33,10 +27,19 @@ Not affiliated with or acting on behalf of Starlink™️
         <img alt="Build Status" src="https://img.shields.io/badge/docker--compose-v3.3-blue">
     </a>
     <a href="https://github.com/prometheus/prometheus/releases">
-        <img alt="Build Status" src="https://img.shields.io/badge/Prometheus-v2.26.0-%23e6522c">
+        <img alt="Build Status" src="https://img.shields.io/badge/prometheus-v2.27.1-%23e6522c">
     </a>
     <a href="https://github.com/grafana/grafana/releases">
-        <img alt="Build Status" src="https://img.shields.io/badge/Grafana-v7.5.4-%23e6522c">
+        <img alt="Build Status" src="https://img.shields.io/badge/grafana-v7.5.7-%23e6522c">
+    </a>
+    <a href="https://github.com/prometheus/blackbox_exporter/releases">
+        <img alt="Build Status" src="https://img.shields.io/badge/blackbox_exporter-v0.19.0-%23e6522c">
+    </a>
+    <a href="https://github.com/danopstech/starlink_exporter/releases">
+        <img alt="Build Status" src="https://img.shields.io/github/v/release/danopstech/starlink_exporter?color=orange&label=starlink%20exporter">
+    </a>
+    <a href="https://github.com/danopstech/speedtest_exporter/releases">
+        <img alt="Build Status" src="https://img.shields.io/github/v/release/danopstech/speedtest_exporter?color=orange&label=speedtest%20exporter">
     </a>
 </p>
 
@@ -44,6 +47,9 @@ Not affiliated with or acting on behalf of Starlink™️
     <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot1.jpg" width="32%"/> 
     <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot2.jpg" width="32%"/>
     <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot3.jpg" width="32%"/>
+    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot4.jpg" width="32%"/>
+    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot5.jpg" width="32%"/>
+    <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/screenshot6.jpg" width="32%"/>
 </p>
 
 ## 🏗️ Built With
@@ -165,7 +171,7 @@ $ docker-compose down
 **Prometheus**
 - If you know [promQL](https://prometheus.io/docs/prometheus/latest/querying/basics/), this is where you can create adhoc queries
 - Access via your browser at [http://localhost:9090](http://localhost:9090)
-- You can check the state of both exporters [here](http://localhost:9090/targets)
+- You can check the state of the exporters [here](http://localhost:9090/targets)
 
 **Starlink Exporter**
 - Standard usage there is no need to visit this
@@ -192,9 +198,7 @@ If you would like more control over which versions of each image to run please v
 
 ### Pushing to a cloud based Grafana account
 
-ℹ️ As standard all data stays on your local machine in the `data` folder, we do not collect anything centrally (not even anonymous data).
-
-If you would like more information about pushing metrics into your own Grafana cloud account: [Pushing metrics to Grafana cloud](https://github.com/danopstech/starlink/blob/main/.docs/grafana_cloud.md)
+As standard all data stays on your local machine in the `data` folder, we **do not** collect your dish metrics centrally. If you would like more information about pushing metrics into your own Grafana cloud account: [Pushing metrics to Grafana cloud](https://github.com/danopstech/starlink/blob/main/.docs/grafana_cloud.md)
 
 ## 📍 Roadmap
 See the open [issues](https://github.com/danopstech/starlink/issues) for a list of proposed features (and known issues).
@@ -206,7 +210,5 @@ See the open [issues](https://github.com/danopstech/starlink/issues) for a list 
 This project was created in 2021 by [Dan Willcocks](https://github.com/dwillcocks).
 
 ## 👎 Troubleshooting
-Some troubleshooting tips coming soon.<br/>
-for now try [Google](https://google.co.uk) <br/>
-or raise an [issue](https://github.com/danopstech/starlink/issues/new?assignees=dwillcocks&labels=bug&template=bug_report.md&title=) <br/>
-or reach me on [Reddit](https://www.reddit.com/user/danopstech)
+Some troubleshooting tips coming soon, until then raise an [issue](https://github.com/danopstech/starlink/issues/new?assignees=dwillcocks&labels=bug&template=bug_report.md&title=).
+

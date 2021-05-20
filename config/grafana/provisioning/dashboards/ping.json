@@ -370,7 +370,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "bottomk(5, avg_over_time(probe_icmp_duration_seconds{phase=\"rtt\"}[30s]))",
+          "expr": "bottomk(4, avg_over_time(probe_icmp_duration_seconds{phase=\"rtt\"}[30s]))",
           "interval": "",
           "legendFormat": "{{ name }}",
           "queryType": "randomWalk",
