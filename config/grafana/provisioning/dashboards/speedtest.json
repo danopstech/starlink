@@ -110,13 +110,13 @@
       },
       "yaxes": [
         {
-          "format": "Bps",
+          "format": "decbits",
           "label": "",
           "logBase": 1,
           "max": null,
           "min": "0",
           "show": true
-        },
+},
         {
           "format": "short",
           "label": null,
@@ -149,7 +149,7 @@
               }
             ]
           },
-          "unit": "Bps"
+          "unit": "decbits"
         },
         "overrides": []
       },
@@ -223,7 +223,7 @@
               }
             ]
           },
-          "unit": "Bps"
+          "unit": "decbits"
         },
         "overrides": []
       },
@@ -600,7 +600,7 @@
               },
               {
                 "id": "unit",
-                "value": "Bps"
+                "value": "decbits"
               }
             ]
           },
@@ -622,7 +622,7 @@
               },
               {
                 "id": "unit",
-                "value": "Bps"
+                "value": "decbits"
               },
               {
                 "id": "max",
