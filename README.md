@@ -27,10 +27,10 @@ Not affiliated with or acting on behalf of Starlink™️
         <img alt="Build Status" src="https://img.shields.io/badge/docker--compose-v3.3-blue">
     </a>
     <a href="https://github.com/prometheus/prometheus/releases">
-        <img alt="Build Status" src="https://img.shields.io/badge/prometheus-v2.27.1-%23e6522c">
+        <img alt="Build Status" src="https://img.shields.io/badge/prometheus-v2.28.0-%23e6522c">
     </a>
     <a href="https://github.com/grafana/grafana/releases">
-        <img alt="Build Status" src="https://img.shields.io/badge/grafana-v7.5.7-%23e6522c">
+        <img alt="Build Status" src="https://img.shields.io/badge/grafana-v8.0.3-%23e6522c">
     </a>
     <a href="https://github.com/prometheus/blackbox_exporter/releases">
         <img alt="Build Status" src="https://img.shields.io/badge/blackbox_exporter-v0.19.0-%23e6522c">
