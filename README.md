@@ -67,7 +67,7 @@ I hope this project will make it easier for users to monitor their Starlink conn
 
 **What does this do?**
 1. Collects information from the Starlink dish every 3 seconds such as: signal strength, alarms, obstructions and latency
-2. Runs internet speed tests every 60 minutes (upload, download, ping)
+2. Runs internet speed tests every 60 minutes (upload, download, ping) 
 3. Measures latency to multiple destinations globally every 3 seconds
 4. Stores all the metrics in a local database (Prometheus time series database)
 5. You can then view the metrics on pre-built dashboards or create your own dashboards in Grafana.
@@ -76,7 +76,7 @@ I hope this project will make it easier for users to monitor their Starlink conn
     <img src="https://github.com/danopstech/starlink/raw/main/.docs/assets/overview.png" width="95%"/> 
 </p>
 
-⚠️ IMPORTANT: When running; this will carry out speedtests every 60 minutes, which will download and upload a fair amount of data over time. Please bare this in mind if your internet connection fails over to tethered/mobile or a data chargeable supplier when Starlink is not available.
+⚠️ IMPORTANT: When running; this will carry out speedtests every 60 minutes, which will download and upload a fair amount of data over time. Please bare this in mind if your internet connection fails over to tethered/mobile or a data chargeable supplier when Starlink is not available. The interval can be changed in `config/prometheus/prometheus.yml`
 
 ## 🏎️ Quick Start
 
